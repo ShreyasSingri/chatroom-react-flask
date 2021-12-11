@@ -14,7 +14,6 @@ sys.dont_write_bytecode = True
 async_mode = 'eventlet'
 
 # Flask Instance
-app = Flask(__name__)
 
 app.secret_key = os.urandom(24)
 socketio = SocketIO(app, async_mode=async_mode)
@@ -43,12 +42,14 @@ def registration():
     if request.method == "POST":
         # data = request.form.to_dict()
         # name = data['name']
+        db.create_all()
         name = request.form.get('name')
         email = request.form.get('email')
         password = request.form.get('password')
         entry = RegisteredUsers(name=name,email=email,password=password)
         db.session.add(entry)
         db.session.commit()
+        
     #return render_template('success.html', form_data=data)
     return render_template('login.html')
 
