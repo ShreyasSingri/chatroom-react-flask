@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Registration</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     {% endblock %}
   </head>
   <body>
@@ -13,9 +13,9 @@
         <h1 class="h3 mb-3 fw-normal">Register</h1>
         <div class="form-floating">
             <input type="text" class="form-control" id="na" name="email" placeholder="Name">
-            <label for="na">Email address</label>
+            <label for="na">Email address</label><br>
             <input type="email" class="form-control" id="emid" name="email" placeholder="abc@xyz.com">
-            <label for="emid">Email address</label>
+            <label for="emid">Email address</label><br>
             <input type="password" class="form-control" id="pass" name = "password" placeholder="Password">
             <label for="pass">Password</label>
         </div>

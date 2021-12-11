@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 import eventlet
 eventlet.monkey_patch()
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit, join_room, leave_room, rooms
 from datetime import datetime
 # to generate a random secret key
@@ -24,16 +23,48 @@ def index():
     return render_template('index.html')
 
 @app.route('/register')
-def index():
+def register():
     return render_template('register.html')
 
 @app.route('/login')
-def index():
+def login():
     return render_template('login.html')
 
 @app.route('/chat')
-def index():
+def chat():
     return render_template('chat.html')
+
+# # API for registration
+# @app.route('/registration', methods=["POST"])
+# def registration():
+#     if request.method == "POST":
+#         # data = request.form.to_dict()
+#         # name = data['name']
+#         name = request.form.get('name')
+#         email = request.form.get('email')
+#         password = request.form.get('password')
+#         entry = Users(name=name,email=email,password=password)
+#         db.session.add(entry)
+#         db.session.commit()
+#     #return render_template('success.html', form_data=data)
+#     return render_template('login.html')
+
+
+# # API for login success
+# @app.route('/logsuc', methods=['POST'])
+# def logsuc():
+#     if request.method == 'POST':
+#         email = request.form.get('email')
+#         password = request.form.get('password')
+#         #result = db.session.query(User).all()
+#         result = db.session.query(User).filter(User.email==email, User.password==password)
+#         for row in result:
+#             if (len(row.email)!=0):
+#                 print("Welcome ",row.name)
+#                 return render_template('dashboard.html', data=row.name)
+#             # print("Name: ",row.name, "Email: ",row.email, "Password: ", row.password)
+#     data = "Wrong Password"
+#     return render_template('login.html', data = data)
 
 
 # socketio events
