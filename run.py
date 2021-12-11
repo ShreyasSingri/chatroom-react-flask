@@ -1,6 +1,6 @@
 import eventlet
 eventlet.monkey_patch()
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, jsonify
 from flask_socketio import SocketIO, emit, join_room, leave_room, rooms
 from datetime import datetime
 # to generate a random secret key
@@ -70,6 +70,12 @@ def loginSuccess():
     data = "Wrong Password"
     return render_template('login.html', data = data)
 
+# Route for logout
+# @app.route('/logout')
+# def logout():
+# 	if 'username' in session:
+# 		session.pop('username', None)
+# 	return jsonify({'message' : 'You successfully logged out'})
 
 # socketio events
 # on connect
