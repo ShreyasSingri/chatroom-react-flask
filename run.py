@@ -13,7 +13,9 @@ sys.dont_write_bytecode = True
 # init
 async_mode = 'eventlet'
 
+# Flask Instance
 app = Flask(__name__)
+
 app.secret_key = os.urandom(24)
 socketio = SocketIO(app, async_mode=async_mode)
 
@@ -36,8 +38,8 @@ def chat():
     return render_template('chat.html')
 
 # # API for registration
-@app.route('/chat', methods=["POST"])
-def registerSuccess():
+@app.route('/registration', methods=["POST"])
+def registration():
     if request.method == "POST":
         # data = request.form.to_dict()
         # name = data['name']
@@ -52,13 +54,14 @@ def registerSuccess():
 
 
 # # API for login success
-@app.route('/chat', methods=['POST'])
-def loginsucess():
+@app.route('/loginsuccess', methods=['POST'])
+def loginSuccess():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         #result = db.session.query(User).all()
-        result = db.session.query(RegisteredUsers).filter(RegisteredUsers.email==email, RegisteredUsers.password==password)
+        result = db.session.query(RegisteredUsers).filter(RegisteredUsers.email==email, 
+        RegisteredUsers.password==password)
         for row in result:
             if (len(row.email)!=0):
                 print("Welcome ",row.name)
