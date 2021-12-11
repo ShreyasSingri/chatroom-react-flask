@@ -7,6 +7,7 @@ from datetime import datetime
 import os
 # refresh pyc everytime I change code
 import sys
+from connection import *
 sys.dont_write_bytecode = True
 
 # init
@@ -35,19 +36,19 @@ def chat():
     return render_template('chat.html')
 
 # # API for registration
-# @app.route('/registration', methods=["POST"])
-# def registration():
-#     if request.method == "POST":
-#         # data = request.form.to_dict()
-#         # name = data['name']
-#         name = request.form.get('name')
-#         email = request.form.get('email')
-#         password = request.form.get('password')
-#         entry = Users(name=name,email=email,password=password)
-#         db.session.add(entry)
-#         db.session.commit()
-#     #return render_template('success.html', form_data=data)
-#     return render_template('login.html')
+@app.route('/registersuccess', methods=["POST"])
+def registerSuccess():
+    if request.method == "POST":
+        # data = request.form.to_dict()
+        # name = data['name']
+        name = request.form.get('name')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        entry = RegisteredUsers(name=name,email=email,password=password)
+        db.session.add(entry)
+        db.session.commit()
+    #return render_template('success.html', form_data=data)
+    return render_template('login.html')
 
 
 # # API for login success
