@@ -4,6 +4,7 @@
     {% block head %}
     <meta charset="utf-8">
     <title>Chat Room</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     {% endblock %}
@@ -13,7 +14,7 @@
       <a class="nav-link" href="login">Login</a>
       <a class="nav-link" href="register">Register</a>
     </nav>
-    <h1>Welcome to the Chat Room</h1>
+    <h1>Welcome to the Chat Room {{session.name}}</h1>
     <script src="{{ url_for('static', filename='main.min.js') }}"></script>
   </body>
 </html>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React,{ useState, useEffect} from 'react';
 import TextField from 'material-ui/TextField';
 import ReactTimeout from 'react-timeout';
 import { socketConnect } from 'socket.io-react';
 import {cyan100, cyan500} from 'material-ui/styles/colors';
-
+import  io from "socket.io-client";
 const styles = {
     nameStyle: {
         width: '50%',

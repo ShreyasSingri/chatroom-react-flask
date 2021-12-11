@@ -67,7 +67,6 @@ def loginSuccess():
             if (len(row.email)!=0):
                 print("Welcome ",row.name)
                 return render_template('chat.html', data=row.name)
-             # print("Name: ",row.name, "Email: ",row.email, "Password: ", row.password)
     data = "Wrong Password"
     return render_template('login.html', data = data)
 
