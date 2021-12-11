@@ -23,6 +23,18 @@ socketio = SocketIO(app, async_mode=async_mode)
 def index():
     return render_template('index.html')
 
+@app.route('/register')
+def index():
+    return render_template('register.html')
+
+@app.route('/login')
+def index():
+    return render_template('login.html')
+
+@app.route('/chat')
+def index():
+    return render_template('chat.html')
+
 
 # socketio events
 # on connect
