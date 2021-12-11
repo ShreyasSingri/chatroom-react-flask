@@ -36,7 +36,7 @@ def chat():
     return render_template('chat.html')
 
 # # API for registration
-@app.route('/registersuccess', methods=["POST"])
+@app.route('/chat', methods=["POST"])
 def registerSuccess():
     if request.method == "POST":
         # data = request.form.to_dict()
@@ -52,20 +52,20 @@ def registerSuccess():
 
 
 # # API for login success
-# @app.route('/logsuc', methods=['POST'])
-# def logsuc():
-#     if request.method == 'POST':
-#         email = request.form.get('email')
-#         password = request.form.get('password')
-#         #result = db.session.query(User).all()
-#         result = db.session.query(User).filter(User.email==email, User.password==password)
-#         for row in result:
-#             if (len(row.email)!=0):
-#                 print("Welcome ",row.name)
-#                 return render_template('dashboard.html', data=row.name)
-#             # print("Name: ",row.name, "Email: ",row.email, "Password: ", row.password)
-#     data = "Wrong Password"
-#     return render_template('login.html', data = data)
+@app.route('/chat', methods=['POST'])
+def loginsucess():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        #result = db.session.query(User).all()
+        result = db.session.query(RegisteredUsers).filter(RegisteredUsers.email==email, RegisteredUsers.password==password)
+        for row in result:
+            if (len(row.email)!=0):
+                print("Welcome ",row.name)
+                return render_template('chat.html', data=row.name)
+             # print("Name: ",row.name, "Email: ",row.email, "Password: ", row.password)
+    data = "Wrong Password"
+    return render_template('login.html', data = data)
 
 
 # socketio events
