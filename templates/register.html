@@ -3,16 +3,23 @@
   <head>
     {% block head %}
     <meta charset="utf-8">
-    <title>Chat Server</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
     {% endblock %}
   </head>
   <body>
     <form action="/registration" method="POST">
-        <input type="text" name="name" placeholder="Name"><br>
-        <input type="email" name="email" placeholder="email@xyz.com"><br>
-        <input type="password" name="password" placeholder="Password"><br>
-        <input type="submit" id="Submit" value="Register">
+        <h1 class="h3 mb-3 fw-normal">Register</h1>
+        <div class="form-floating">
+            <input type="text" class="form-control" id="na" name="email" placeholder="Name">
+            <label for="na">Email address</label>
+            <input type="email" class="form-control" id="emid" name="email" placeholder="abc@xyz.com">
+            <label for="emid">Email address</label>
+            <input type="password" class="form-control" id="pass" name = "password" placeholder="Password">
+            <label for="pass">Password</label>
+        </div>
+        <input class="w-100 btn btn-lg btn-primary" type="submit" value="Register">
     </form>
   </body>
 </html>
