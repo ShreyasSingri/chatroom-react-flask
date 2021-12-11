@@ -1,7 +1,8 @@
 import eventlet
 eventlet.monkey_patch()
-from flask import Flask, render_template, request, session, jsonify
+from flask import Flask, render_template, request, session, jsonify, redirect
 from flask_socketio import SocketIO, emit, join_room, leave_room, rooms
+# from flask_login import logout_user
 from datetime import datetime
 # to generate a random secret key
 import os
@@ -76,6 +77,11 @@ def loginSuccess():
 # 	if 'username' in session:
 # 		session.pop('username', None)
 # 	return jsonify({'message' : 'You successfully logged out'})
+
+# @app.route("/logout")
+# def logout():
+#     logout_user()
+#     return redirect('login.html')
 
 # socketio events
 # on connect

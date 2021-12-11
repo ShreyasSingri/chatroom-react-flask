@@ -6,9 +6,31 @@
     <title>Registration</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!-- Add icon library -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {% endblock %}
   </head>
   <body>
+    <a href='/'>
+      <button class="button"><i class="fa fa-home"></i> Home</button>
+    </a>
+    <style>
+      .button {
+        background-color: black; /* Blue background */
+        margin: 5px;
+        border: none; /* Remove borders */
+        color: whitesmoke; /* White text */
+        padding: 10px 12px; /* Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+      }
+      /* Darker background on mouse-over */
+      .button:hover {
+        background-color: blueviolet;
+      }
+    </style>
+
     <form action="/registration" method="POST">
         <h1 class="h3 mb-3 fw-normal">Register</h1>
         <div class="form-floating">
