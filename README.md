@@ -40,6 +40,6 @@ We have created api for login and register.<br>
 API FOR LOGIN AND REGISTER:-
 
 Register API <br>
-API endpoint will check that is http request method is get, than render registration form but if the http request method is post, than it will check that form is valid or not, if form is valid, it will create new user object with that password and then it will save that object inside the Database.
+API endpoint will check that is http request method is get, than render registration form but if the http request method is post, than it will check that form is valid or not, if form is valid, it will create new user object with that password and then it will save that object inside the Database.<br>
 Login API <br>
 Here, if the method is post and the form is valid, then it will search the user in the Database using the user's email. if user exist than it will compare the hashed password which is stored inside the database and simple password which is entered by user
