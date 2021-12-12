@@ -7,3 +7,5 @@ python-socketio==4.6.0
 SQLAlchemy
 flask-sqlalchemy==2.1.0
 psycopg2-binary
+wtforms
+wtforms.validators
