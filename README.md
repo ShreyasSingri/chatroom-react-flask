@@ -1,14 +1,6 @@
 # Introduction
 This is a chat application, implemented using Flask-SocketIO with the database (PostgreSQL).
 
-commands for running the code:--
-virtualenv venv
-. ./venv/bin/activate
-pip install -r requirements.txt
-export FLASK_APP=run.py
-flask run
-create a database chatapp
-
 Demonstration of a Flask application with live chat functionality. Comments are added to the page for all connected clients, and the page views automatically updates as well.
 
 Live chat: Using Javascript, SocketIO, and Python. All messages are sent to the Python web server, and then broadcast back to all clients.
@@ -16,6 +8,19 @@ Persistent chat: Utilizing flask-sqlalchemy, all chat messages are saved and are
 
 Frontend is build using React.
 Backend is build using Flask.
+
+## Commands for running the code
+
+virtualenv venv
+. ./venv/bin/activate
+pip install -r requirements.txt
+export FLASK_APP=run.py
+flask run
+create a database chatapp
+
+
+
+
 
 Files in the program
 run.py: This is the main app file and contains both the registration/login page logic and the Flask-SocketIO backend for the app.
