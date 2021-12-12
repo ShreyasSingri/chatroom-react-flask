@@ -17,7 +17,7 @@ pip install -r requirements.txt <br>
 export FLASK_APP=run.py <br>
 flask run <br>
 
-3) create a database chatapp <br>
+3) create a database chatapp in postgres <br>
 
 ## Files in the program
 run.py: This is the main app file and contains both the registration/login page logic and the Flask-SocketIO backend for the app.<br>
