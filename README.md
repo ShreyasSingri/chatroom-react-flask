@@ -19,21 +19,21 @@ flask run <br>
 create a database chatapp <br>
 
 ## Files in the program
-run.py: This is the main app file and contains both the registration/login page logic and the Flask-SocketIO backend for the app.
-connection.py: Contains Flask-SQLAlchemy models used for user registration and login in application.py
-requirements.txt: list of Python packages installed 
-templates/: folder with all HTML files
-static/: for with all JS scripts and CSS files
+run.py: This is the main app file and contains both the registration/login page logic and the Flask-SocketIO backend for the app.<br>
+connection.py: Contains Flask-SQLAlchemy models used for user registration and login in application.py <br>
+requirements.txt: list of Python packages installed  <br>
+templates/: folder with all HTML files <br>
+static/: for with all JS scripts and CSS files <br>
 
-Database
+### Database
 We have created a postgres database "chatapp" for registering the users using chatapp and then fetching the users while logging in.
-Chatapp database has a table "registered_users" which is automatically created when we run the connection.py file and has the following parameters.
-id,name,email and password.
-All these parameters are taken from the user while registration.
-For logging in user has to enter its email and password.
+Chatapp database has a table "registered_users" which is automatically created when we run the connection.py file and has the following parameters.<br>
+id,name,email and password. <br>
+All these parameters are taken from the user while registration.<br>
+For logging in user has to enter its email and password.<br>
 
 
-API
+### API
 We have created api for login and register.
 
 Register API
