@@ -1,6 +1,6 @@
 import eventlet
 eventlet.monkey_patch()
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request,flash
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import InputRequired, Email
 from flask_socketio import SocketIO, emit, join_room, leave_room, rooms
@@ -51,7 +51,7 @@ def registration():
         RegisteredUsers.password==password)
         for row in result:
             if row.email == email:
-                return render_template('register.html', data = "User exists")
+                return render_template('register.html', data = "User already exists")
         entry = RegisteredUsers(name=name,email=email,password=password)
         db.session.add(entry)
         db.session.commit()
