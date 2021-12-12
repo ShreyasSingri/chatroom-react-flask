@@ -1,8 +1,9 @@
 import eventlet
 eventlet.monkey_patch()
-from flask import Flask, render_template, request, session, jsonify, redirect
+from flask import Flask, render_template, request
+from wtforms import StringField, TextAreaField, SubmitField
+from wtforms.validators import InputRequired, Email
 from flask_socketio import SocketIO, emit, join_room, leave_room, rooms
-# from flask_login import logout_user
 from datetime import datetime
 # to generate a random secret key
 import os
@@ -36,7 +37,6 @@ def login():
 @app.route('/chat')
 def chat():
     return render_template('chat.html')
-
 # # API for registration
 @app.route('/registration', methods=["POST"])
 def registration():
@@ -44,9 +44,14 @@ def registration():
         # data = request.form.to_dict()
         # name = data['name']
         db.create_all()
-        name = request.form.get('name')
-        email = request.form.get('email')
+        name = request.form.get('name',  [InputRequired("Please enter your name.")])
+        email = request.form.get('email', [InputRequired("Please enter your email address."), Email("This field requires a valid email address")])
         password = request.form.get('password')
+        result = db.session.query(RegisteredUsers).filter(RegisteredUsers.email==email, 
+        RegisteredUsers.password==password)
+        for row in result:
+            if row.email == email:
+                return render_template('register.html', data = "User exists")
         entry = RegisteredUsers(name=name,email=email,password=password)
         db.session.add(entry)
         db.session.commit()
@@ -71,17 +76,6 @@ def loginSuccess():
     data = "Wrong Password"
     return render_template('login.html', data = data)
 
-# Route for logout
-# @app.route('/logout')
-# def logout():
-# 	if 'username' in session:
-# 		session.pop('username', None)
-# 	return jsonify({'message' : 'You successfully logged out'})
-
-# @app.route("/logout")
-# def logout():
-#     logout_user()
-#     return redirect('login.html')
 
 # socketio events
 # on connect
