@@ -11,18 +11,14 @@ Backend is build using Flask.
 
 ## Commands for running the code
 
-virtualenv venv
-. ./venv/bin/activate
-pip install -r requirements.txt
-export FLASK_APP=run.py
-flask run
-create a database chatapp
+virtualenv venv <br>
+. ./venv/bin/activate <br>
+pip install -r requirements.txt <br>
+export FLASK_APP=run.py <br>
+flask run <br>
+create a database chatapp <br>
 
-
-
-
-
-Files in the program
+## Files in the program
 run.py: This is the main app file and contains both the registration/login page logic and the Flask-SocketIO backend for the app.
 connection.py: Contains Flask-SQLAlchemy models used for user registration and login in application.py
 requirements.txt: list of Python packages installed 
@@ -41,4 +37,9 @@ API
 We have created api for login and register.
 
 Register API
- API endpoint will check that is http request method is get, than render registration form but if the http request method is post, than it will check that form is valid or not, if form is valid, it will create new user object with that password and then it will save that object inside the Database.
+    API endpoint will check that is http request method is get, than render registration form but if the http request method is post, than it will check that form is valid or not, if form is valid, it will create new user object with that password and then it will save that object inside the Database.
+
+Login API
+    Here, if method is post and form is valid, than it will search user in Database using user's email. if user exist than it will compare the hashed password which is stored inside the database and simple password which is entered by user.
+
+    If both password matched then allow user to access and redirect user to home while saving username and email inside the session.
