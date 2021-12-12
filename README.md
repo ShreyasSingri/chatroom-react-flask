@@ -1,4 +1,4 @@
-Introduction
+# Introduction
 This is a chat application, implemented using Flask-SocketIO with the database (PostgreSQL).
 
 commands for running the code:--
