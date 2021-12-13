@@ -7,10 +7,6 @@ python-socketio==4.6.0
 SQLAlchemy
 flask-sqlalchemy==2.1.0
 psycopg2-binary
-<<<<<<< HEAD
-wtforms.validators
 email_validator
-=======
 wtforms
 wtforms.validators
->>>>>>> ee2e562715ab0009bed25b18d8e9edc69a18f0de
